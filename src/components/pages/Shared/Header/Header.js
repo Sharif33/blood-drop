@@ -3,7 +3,7 @@
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles'; */
 import IconButton from '@mui/material/IconButton';
-// import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeIcon from '@mui/icons-material/Home';
@@ -17,6 +17,7 @@ import "./Header.css";
 import { Drawer, Box } from '@mui/material'
 import { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
+import SearchNav from './SearchNav';
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -27,7 +28,7 @@ const Header = () => {
 
     return (
     <div>
-        <div style={{marginBottom:"60px"}} className="header">
+        <div style={{marginBottom:"76px"}} className="header">
             <div className="header-inner">
                 <nav className="navbar py-3 fixed-top ms-auto bg-light">
                  <div className="container">
@@ -54,7 +55,7 @@ const Header = () => {
                                             <button className='me-4 fw-boldtext-danger' onClick={() => setIsDrawerOpen(false)}><CloseIcon/></button>
                                         </div>
                                     <ul className="navbar-nav">
-                                        <li className="nav-item small-search">
+                                        <li className="nav-item my-auto small-search">
                                             <NavLink className='me-4 fw-bold w-100 mb-2' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to={`/compare`} >
                                             <IconButton aria-label="compare">
                                             {/* <StyledBadge badgeContent={addToCompare?.length} color="error">
@@ -63,16 +64,16 @@ const Header = () => {
                                             </IconButton>
                                             </NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 mb-2 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/"><HomeIcon className='mx-3'/> Home</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 mb-2 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/mobiles"><ShoppingBagIcon className='mx-3'/> Shop</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 mb-2 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} href="#contact" to="/contact"><MailIcon className='mx-3'/> Contact</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 mb-2 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/about"><GroupsIcon className='mx-3'/> About</NavLink>
                                         </li>
                                      </ul>
@@ -87,41 +88,41 @@ const Header = () => {
                          </div>
                         </div>
                         
-                                <div className='my-auto'>
-                                   <div className='d-flex  justify-content-between'>
-                                    {/* <div className='nav-hidder my-auto'>
-                                          <SearchNav/>      
-                                    </div> */}
-                                   {/*  <div className='small-search m-auto'>
-                                         <NavLink className='mx-1 btn' style={{textDecoration:"none"}} to="/search"><span><SearchIcon className='text-light'/></span></NavLink>
-                                    </div> */}
+                                <div className=''>                      
+                                    <div className='small-search m-auto'>
+                                         <NavLink className='mx-1 btn' style={{textDecoration:"none"}} to="/search"><span><SearchIcon className='text-danger'/></span></NavLink>
+                                    </div>
                                     <Box  sx={{ display: { sm: 'none', md:"block", xs:"none"} }}>
-                                         <ul className='nav m-auto'>
+                                         <ul className='nav'>
                                      
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/">HOME</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/mobiles">ABOUT US</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} href="#contact" to="/contact">CAMPAIGN</NavLink>
                                         </li>
-                                        <li className="nav-item">
-                                            <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/about">DONOR</NavLink>
+                                        <li className="nav-item my-auto">
+                                            <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/donors">DONOR</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/about">BLOG</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item my-auto">
                                             <NavLink className='me-4 fw-bold w-100 text-start' style={({isActive})=> ({color: isActive ? '#DF2443' : '#637381', textDecoration: isActive ?'none' : 'none'})} to="/about">CONTACT</NavLink>
                                         </li>
+                                        <li className="nav-hidder">
+                                            <SearchNav/>
+                                        </li>
                                         </ul>
+                                        <div className=''>
+                                                
+                                    </div>
                                     </Box>
                                        
-                                </div> 
-                                </div>
-                                
+                                </div>   
                             </div>
                             
                                         

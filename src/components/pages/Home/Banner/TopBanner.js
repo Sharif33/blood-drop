@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import banner from '../../../../images/home_1_slider_1.jpg';
+import banner from '../../../../images/blood-banner.png';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -43,7 +43,7 @@ const TopBanner = () => {
                 </div>
             </div>
         <div>
-          <img className='img-fluid' src={banner} alt="" />
+          <img className='img-fluid w-100' src={banner} alt="" />
         </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -59,11 +59,11 @@ const TopBanner = () => {
                 </div>
             </div>
         <div>
-          <img className='img-fluid' src={banner} alt="" />
+          <img className='img-fluid w-100' src={banner} alt="" />
         </div>
         </SwiperSlide>
         
-      </Swiper>  
+      </Swiper>
         </div>
     );
 };
