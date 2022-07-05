@@ -1,41 +1,49 @@
-import React from 'react';
+import { Avatar } from '@mui/material';
+import React, { useContext } from 'react';
+import { Nearest } from '../../Contexts/NearestProvider';
+import { BiMapPin } from "react-icons/bi";
+import CountdownTimer from '../../Hooks/Countdown/CoundownTimer';
 
 const Donor = ({donor}) => {
-    const {name,bgrp,lastDonate,gender,area,image}=donor;
+    const {name,bloodGroup,lastDonate,area,image,donation}=donor;
+
+    const {nearest,setNearest} = useContext(Nearest);
     return (
         <div>
-            <div className="col mb-5 rounded">
-                <div className="card card-hover bg-light shadow border-0 h-100">
-                    <div className='row p-3 g-0'>
-                    <div className='p-3 text-center'>
-                    <div style={{marginTop:"-3.5rem"}} className='rounded fw-bold text-center bg-white text-danger'>
-                            <h1>{bgrp}</h1>
-                            </div>
-                            <img style={{ width:"7rem"}} src={image} className="img-fluid rounded-circle p-2 m-3" alt="" />
-                            <div>
-                                <h4>{name}</h4>
-                                <h4>Area: {area}</h4>
-                                <h5>{gender}</h5> 
-                                <p className="text-danger fw-bold">Last Donate : {lastDonate}</p>
-                            </div>
-                            
-                            {/* <Box sx={{
-                                '& > legend': { mt: 2 },
-                            }}>
-                                <Rating name="half-rating-read" precision={0.5} size="small" value={Number(star)} readOnly />
-                            </Box> */}
-                            {/* <div style={{ textAlign: "justify" }} className="p-2">
-                                <p className="text-secondary">{specs}</p>
-                            </div> */}
+            <div className="col mb-2 rounded ribbon">
+                <div className="card bg-light shadow border-0 h-100">
+                <div className="d-flex justify-content-between align-items-center">
 
+                    <div className="app-download text-center">
+                    <label className="fa-mobile-phone bounce text-light">{bloodGroup}</label>
                         </div>
-                        
+                        <span className="p-2 border-0 btn-bg position-absolute text-end rounded-0 w-100 top-0 "> {donation} Times Donate </span>
                     </div>
-                    <div className="d-flex justify-content-between">
-                        {/* <Link to={`/mobile/${_id}`}><button className="btn btn-custom-2">OVERVIEW</button></Link>
-                        <Link to={`/mobile2/${_id}`}><button className="btn btn-custom">BUY NOW</button></Link> */}
-                        <button className='btn btn-custom w-100'>Request for donate</button>
-                    </div>
+
+                    <div className='p-4'>
+                            <div className="d-flex justify-content-evenly align-items-center">
+                               <Avatar src={image} alt='donar image' />
+                                <div>
+                                <h6>{name}</h6>
+                                <small><BiMapPin className='text-info bounce'/> {area?.district}</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div style={{height:"2rem"}}>
+                                <CountdownTimer lastDonate={lastDonate}/>
+                            </div>
+                    <div>
+                            {
+                           nearest.includes(donor) ? (
+                              <button onClick={()=>{setNearest(nearest.filter((c)=>c._id !== donor._id))}} className='btn btn-danger w-100 rounded-0'> Marked nearest </button>  
+                            )
+                            :
+                            (
+                            <button onClick={()=>{setNearest([...nearest,donor])}} className='btn btn-success w-100 rounded-0'> Mark as nearest </button>
+                            )
+                        }   
+                                             
+                        </div> 
                 </div>
             </div>
         </div>

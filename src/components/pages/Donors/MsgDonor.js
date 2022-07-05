@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -6,10 +6,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import { Button } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import { BiMapPin } from "react-icons/bi";
+import { SiFacebooklive } from "react-icons/si";
 
 
 const MsgDonor = ({donor,open,handleClose}) => {
@@ -43,7 +45,7 @@ const MsgDonor = ({donor,open,handleClose}) => {
             })
     }
     return (
-        <div>
+        <>
             <Dialog
             fullScreen={fullScreen}
             open={open}
@@ -55,9 +57,21 @@ const MsgDonor = ({donor,open,handleClose}) => {
             <DialogContent>
             <DialogContentText>
             <div style={{backgroundColor:"#EAEDF1"}}>
-                    <div style={{backgroundColor:"#fe3c47"}}>
-                        <h3 className='py-4 text-center text-white'>REQUEST BLOOD DONOR</h3>
-                    </div>
+              <div className='d-flex justify-content-between align-items-center p-2 px-3'>
+                  <div className='d-flex justify-content-start align-items-center'>
+                      <Avatar alt="Remy Sharp" src={donor?.image} />
+                      <div className='px-3'>
+                        <small>{donor.name}</small>
+                        <h5>{donor?.bloodGroup}</h5>
+                      </div>  
+                      </div>
+                <div>
+                    <small><BiMapPin className='text-danger'/> {donor?.area?.district}</small> <br />
+                    <a href={donor?.contact?.fbID}><SiFacebooklive className='fs-1 text-primary'/></a>
+                    
+                </div>
+              </div>
+                    <>
                     {
                         donor && <form className='input-group' onSubmit={handleSubmit(onSubmit)}>
                       <div className="row m-auto">
@@ -151,6 +165,8 @@ const MsgDonor = ({donor,open,handleClose}) => {
                       </div>   
                     </form>
                     }
+                    </>
+                    
                     
                 </div>
             </DialogContentText>
@@ -161,7 +177,7 @@ const MsgDonor = ({donor,open,handleClose}) => {
             </Button>
             </DialogActions>
             </Dialog>
-    </div>
+    </>
     );
 };
 

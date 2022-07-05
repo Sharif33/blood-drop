@@ -28,7 +28,7 @@ const Header = () => {
 
     return (
     <div>
-        <div style={{marginBottom:"76px"}} className="header">
+        <div style={{marginBottom:"76px",overflowX:"hidden"}} className="header">
             <div className="header-inner">
                 <nav className="navbar py-3 fixed-top ms-auto bg-light">
                  <div className="container">

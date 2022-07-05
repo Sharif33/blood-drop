@@ -1,0 +1,63 @@
+.btn-bg{
+    background-color:  #dc1e4d15;
+}
+
+.app-download {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #dc1e4d;
+    top: 0;
+    position: relative;
+    flex-direction: column;
+    z-index: 100;
+    left: 0;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    width: 3rem;
+}
+    .fa-mobile-phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      color: #fff;
+      font-size: 1.15rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 2px dotted #fff;
+      border-radius: 50%;
+      margin: .5rem 0;
+      cursor: pointer;
+    }
+
+.bounce {
+animation: bounce 0.5s;
+animation-direction: alternate;
+animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+animation-iteration-count: infinite;
+/* -webkit-animation-name: bounce;
+-webkit-animation-duration: 0.5s; */
+-webkit-animation-direction: alternate;
+-webkit-animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+from {
+  transform: translate3d(0, 0, 0);
+}
+to {
+  transform: translate3d(0, 3px, 0);
+}
+}
+
+@-webkit-keyframes bounce {
+from {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+to {
+  -webkit-transform: translate3d(0, 3px, 0);
+  transform: translate3d(0, 3px, 0);
+}
+}
